@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const App = () => {
-  return <div>My First React App</div>;
+  return <div>React App - Hello Ja9</div>;
 };
 
 export default App;
