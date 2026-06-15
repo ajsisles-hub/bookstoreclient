@@ -5,7 +5,7 @@ import { baseApiUrl }  from './config';
 
 
 export const App = () => {
-
+console.log('Base API URL:', baseApiUrl);
   axios.get(`${baseApiUrl}/api/v1/books`)
     .then(response => {
       console.log(response.data);
