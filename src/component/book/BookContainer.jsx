@@ -25,8 +25,6 @@ const BookContainer = () => {
             <BookFilter />
             <Box>
                 Here is where the book list will go.
-
-
             </Box>
         </StyledBookContainer>
     );

@@ -11,6 +11,6 @@ export const getBooksAction = () => async (dispatch) => {
             payload: response.data // axios nests the response in a .data object
         });
     } catch (error) {
-        console.error('Error fetching books:', error);
+        console.log('Error fetching books:', error);
     }
 };

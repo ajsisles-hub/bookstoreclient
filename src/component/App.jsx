@@ -13,7 +13,7 @@ console.log('Base API URL:', baseApiUrl);
       console.log(response.data);
     })
     .catch(error => {
-      console.error('Error fetching books:', error);
+      console.log('Error fetching books:', error);
     });
 
 
