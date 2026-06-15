@@ -1,5 +1,3 @@
-const environmentUrls = new Map();
-
 export const baseApiUrl = 
     window.location.hostname === 'localhost' ||
     window.location.hostname === '127.0.0.1'
