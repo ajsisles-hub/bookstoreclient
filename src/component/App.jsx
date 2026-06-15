@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { baseApiUrl }  from './config';
+import { baseApiUrl }  from '../config';
 
 
 
