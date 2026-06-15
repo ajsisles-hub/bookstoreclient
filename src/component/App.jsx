@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { baseApiUrl }  from '../config';
+import Layout from './layout/Layout';
 
 
 
@@ -15,7 +16,13 @@ console.log('Base API URL:', baseApiUrl);
     });
 
 
-  return <div>React App - Hello Ja9</div>;
+  // return <div>React App - Hello Ja9</div>;
+
+  return (
+<Layout>
+  <div>First Component JA9</div>
+</Layout>
+  );
 };
 
 export default App;
