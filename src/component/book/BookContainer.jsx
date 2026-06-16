@@ -6,6 +6,7 @@ import { StyledBookContainer } from './BookStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooksAction } from '../../module/book/bookAction';
 import { getBookSelector } from '../../module/book/bookSelector';
+import BookList from './BookList';
 
 
 const BookContainer = () => {
@@ -24,7 +25,7 @@ const BookContainer = () => {
         <StyledBookContainer>
             <BookFilter />
             <Box>
-                Here is where the book list will go.
+                <BookList books={books} />
             </Box>
         </StyledBookContainer>
     );
