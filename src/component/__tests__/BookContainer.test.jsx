@@ -3,13 +3,15 @@ import renderWithRedux from '../../util/testUtil';
 import BookContainer from '../book/BookContainer';
 import BookList from '../book/BookList';
 import bookReducer from '../../module/book/bookReducer';
+import BookTableItem from '../book/BookTableItem';
 
-jest.mock('../book/BookList');
+
+jest.mock('../book/BookTableItem');
 
 describe('BookContainer Component', () => {
 
     beforeAll(() => {
-        BookList.mockImplementation(() => <div>mock book List</div>)
+        BookTableItem.mockImplementation(() => <div>mock book List</div>)
     });
 
     it('renders without crashing', () => {
@@ -51,7 +53,7 @@ describe('BookContainer Component', () => {
                 },
             });
 
-        expect(BookList).toHaveBeenCalledWith({ books }, undefined);
+        expect(BookTableItem).toHaveBeenCalledWith({ books }, undefined);
 
     });
 
