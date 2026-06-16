@@ -8,7 +8,7 @@ import { getBooksAction } from '../../module/book/bookAction';
 import { getBookSelector } from '../../module/book/bookSelector';
 // import BookList from './BookList';
 import BookTableItem from './BookTableItem';
-
+import BookListItemWithImage from './BookListItemWithImage';
 
 const BookContainer = () => {
     const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const BookContainer = () => {
         <StyledBookContainer>
             <BookFilter />
             <Box>
-                <BookTableItem books={books} />
+                <BookListItemWithImage books={books} />
             </Box>
         </StyledBookContainer>
     );
