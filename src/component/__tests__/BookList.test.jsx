@@ -12,7 +12,7 @@ describe('BookList', () => {
     // 2. Clear calls before each test to prevent bleed-over pollution
     beforeEach(() => {
         BookListItemWithImage.mockClear();
-    });
+});
 
     const books = [
         {

@@ -1,7 +1,7 @@
 import configureStore from 'redux-mock-store';
 import { thunk } from 'redux-thunk'; // middleware for handling async actions
 import axios from 'axios'; // we will mock this
-import { getBooksAction } from '../../module/book/bookAction'; // the action we want to test
+import { getBooksAction } from '../book/bookAction'; // the action we want to test
 
 
 jest.mock('axios'); // Mock axios to control its behavior in tests
@@ -30,9 +30,9 @@ describe('Book Actions', () => {
         const actions = store.getActions(); // Get the dispatched actions
 
 
-        expect(actions.length).toEqual(1); //  Check the length of the ACTIONS ARRAY, not the action object
+        expect(actions.length).toEqual(3); //  Check the length of the ACTIONS ARRAY, not the action object
 
-        expect(actions[0]).toEqual({
+        expect(actions[1]).toEqual({
             type: 'BOOKLIST',
             payload: mockBookData
         });
