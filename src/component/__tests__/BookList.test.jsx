@@ -8,7 +8,7 @@ import BookListItemWithImage from '../book/BookListItemWithImage';
 jest.mock('../book/BookListItemWithImage', () => jest.fn(() => <div>BookListItemWithImage comp</div>));
 
 describe('BookList', () => {
-    
+
     // 2. Clear calls before each test to prevent bleed-over pollution
     beforeEach(() => {
         BookListItemWithImage.mockClear();
@@ -34,5 +34,7 @@ describe('BookList', () => {
 
         // 3. This assertion will now successfully register 2 calls!
         expect(BookListItemWithImage).toHaveBeenCalledTimes(2);
+        expect(BookListItemWithImage).toHaveBeenCalledWith({ book: books[0] }, undefined);
+        expect(BookListItemWithImage).toHaveBeenCalledWith({ book: books[1] }, undefined);
     });
 });
