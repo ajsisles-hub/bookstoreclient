@@ -1,7 +1,7 @@
 import React from 'react';
-// import { StyledBookContainer } from './BookStyles';
 import PropTypes from 'prop-types';
-import BookListItem from './BookListItem'
+// import BookListItem from './BookListItem'
+import BookListItemWithImage from './BookListItemWithImage';
 import { Box } from '@mui/material'
 
 const propTypes = {
@@ -13,20 +13,15 @@ const propTypes = {
     }))
 }
 
-
-
-
-
 const BookList = ({ books }) => {
     return (
         <Box>
             {books.map((book) =>
-                <BookListItem book={book} key={book.id} />
+                <BookListItemWithImage book={book} key={book.id} />
             )}
         </Box>
     )
 };
-
 
 BookList.propTypes = propTypes;
 export default BookList;
