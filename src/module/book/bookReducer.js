@@ -15,18 +15,23 @@ const bookReducer = (state = INITIAL_BOOK_REDUCER_STATE, action) => {
                 ...state,
                 books: action.payload
             };
+        case 'BOOKSBYTITLE':
+            return {
+                ...state,
+                books: action.payload
+            };
         case "BOOKLISTPENDING":
             return {
                 ...state,
                 promise: { isPending: true, isFulfilled: false, isErrorOccured: false }
             }
-        case "BOOKLISTERROR":    
-          return {
+        case "BOOKLISTERROR":
+            return {
                 ...state,
                 promise: { isPending: false, isFulfilled: false, isErrorOccured: true }
             }
-        case "BOOKLISTFULLFILLED":    
-          return {
+        case "BOOKLISTFULLFILLED":
+            return {
                 ...state,
                 promise: { isPending: false, isFulfilled: true, isErrorOccured: false }
             }
