@@ -222,11 +222,110 @@ exports[`App Component  renders without crashing 1`] = `
         <div
           class="MuiBox-root css-0"
         >
-          <span
-            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse css-3sr0vz-MuiSkeleton-root"
+          <div
+            class="MuiStack-root css-426goz-MuiStack-root-listContainer"
             data-testid="book-loader"
-            style="width: 80%; height: 200px;"
-          />
+          >
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-zqxsyv-MuiPaper-root-bookRowCard"
+              style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+            >
+              <div
+                class="MuiBox-root css-1o3r2vy-imageContainer"
+              >
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-wave css-1sntz1n-MuiSkeleton-root"
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
+              <div
+                class="MuiBox-root css-17waa4p-textBlock"
+              >
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-a15yta-MuiSkeleton-root"
+                  style="width: 40%; height: 32px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-bg2br5-MuiSkeleton-root"
+                  style="width: 90%; height: 20px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1ogcruc-MuiSkeleton-root"
+                  style="width: 75%; height: 20px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-wave css-q7002v-MuiSkeleton-root"
+                  style="width: 100px; height: 24px;"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-zqxsyv-MuiPaper-root-bookRowCard"
+              style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+            >
+              <div
+                class="MuiBox-root css-1o3r2vy-imageContainer"
+              >
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-wave css-1sntz1n-MuiSkeleton-root"
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
+              <div
+                class="MuiBox-root css-17waa4p-textBlock"
+              >
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-a15yta-MuiSkeleton-root"
+                  style="width: 40%; height: 32px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-bg2br5-MuiSkeleton-root"
+                  style="width: 90%; height: 20px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1ogcruc-MuiSkeleton-root"
+                  style="width: 75%; height: 20px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-wave css-q7002v-MuiSkeleton-root"
+                  style="width: 100px; height: 24px;"
+                />
+              </div>
+            </div>
+            <div
+              class="MuiPaper-root MuiPaper-elevation MuiPaper-rounded MuiPaper-elevation1 css-zqxsyv-MuiPaper-root-bookRowCard"
+              style="--Paper-shadow: 0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12);"
+            >
+              <div
+                class="MuiBox-root css-1o3r2vy-imageContainer"
+              >
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-rectangular MuiSkeleton-wave css-1sntz1n-MuiSkeleton-root"
+                  style="width: 100%; height: 100%;"
+                />
+              </div>
+              <div
+                class="MuiBox-root css-17waa4p-textBlock"
+              >
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-a15yta-MuiSkeleton-root"
+                  style="width: 40%; height: 32px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-bg2br5-MuiSkeleton-root"
+                  style="width: 90%; height: 20px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-wave css-1ogcruc-MuiSkeleton-root"
+                  style="width: 75%; height: 20px;"
+                />
+                <span
+                  class="MuiSkeleton-root MuiSkeleton-rounded MuiSkeleton-wave css-q7002v-MuiSkeleton-root"
+                  style="width: 100px; height: 24px;"
+                />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

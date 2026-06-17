@@ -1,61 +1,82 @@
 import configureStore from 'redux-mock-store';
-import { thunk } from 'redux-thunk'; // middleware for handling async actions
-import axios from 'axios'; // we will mock this
-import { getBooksAction } from '../book/bookAction'; // the action we want to test
+import { thunk } from 'redux-thunk'; 
+import axios from 'axios'; 
+import { getBooksAction, getBooksByTitle } from '../book/bookAction'; 
+// 1. IMPORT YOUR SERVICE DIRECTLY
+import { getBookByTitleService } from '../book/bookService'; 
 
-
-jest.mock('axios'); // Mock axios to control its behavior in tests
+jest.mock('axios'); 
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
 
 describe('Book Actions', () => {
-    it('dispatches BOOKLIST action with fetched books on success', async () => {
-        const store = mockStore({}); // Initial state
+    const mockBookData = [{
+        id: 1,
+        title: 'Mock Book',
+        description: 'Mock description',
+        releaseYear: 2020
+    }]; 
 
-
-        const mockBookData = [{
-            id: 1,
-            title: 'Mock Book',
-            description: 'Mock description',
-            releaseYear: 2020
-        }]; // Mock axios response
-
+    beforeEach(() => {
+        // Clear mock histories between tests so they don't leak into each other
+        jest.clearAllMocks();
 
         axios.get.mockImplementation(() => Promise.resolve({
             data: mockBookData
-        })); // Mock axios response
+        })); 
+    });
 
-        await store.dispatch(getBooksAction()); // Dispatch the action
-        const actions = store.getActions(); // Get the dispatched actions
+    it('dispatches BOOKLIST action with fetched books on success', async () => {
+        const store = mockStore({}); 
 
+        await store.dispatch(getBooksAction()); 
+        const actions = store.getActions(); 
 
-        expect(actions.length).toEqual(3); //  Check the length of the ACTIONS ARRAY, not the action object
-
+        expect(actions.length).toEqual(3);
         expect(actions[1]).toEqual({
             type: 'BOOKLIST',
             payload: mockBookData
         });
-
-
     });
 
     it('handles errors when fetching books fails', async () => {
         const mockError = new Error('Network Error');
-        axios.get.mockRejectedValue(mockError); // Mock axios to reject
+        axios.get.mockRejectedValue(mockError);
 
-        const store = mockStore({ books: [] }); // Initial state
-        await store.dispatch(getBooksAction()); // Dispatch the action
+        const store = mockStore({ books: [] });
+        await store.dispatch(getBooksAction());
 
-        // expect(store.getActions()).toEqual([]); // No actions should be dispatched on error
         expect(store.getActions()).toEqual([
             { type: "BOOKLISTPENDING" },
             { type: "BOOKLISTERROR" }
         ]);
+    });
 
+    it('should able to dispatch book by title action', async () => {
+        // 2. SPY ON THE SERVICE TO CONTROL ITS OUTPUT BYPASSING AXIOS COMPLETELY
+        jest.spyOn(getBookByTitleService, 'getBooks').mockResolvedValue({
+            data: mockBookData
+        });
+
+        const store = mockStore({});
+        await store.dispatch(getBooksByTitle('test title'));
+
+        const actions = store.getActions();
+
+        // 3. THIS WILL NOW SUCCESSFULLY BE 3 ACTIONS!
+        expect(actions.length).toEqual(3);
+        
+        expect(actions[0].type).toEqual("BOOKLISTPENDING");
+        expect(actions[1]).toEqual({
+            type: 'BOOKSBYTITLE',
+            payload: [{
+                id: 1,
+                title: 'Mock Book',
+                description: 'Mock description',
+                releaseYear: 2020
+            }]
+        });
+        expect(actions[2].type).toEqual("BOOKLISTFULFILLED");
     });
 });
-
-
-
-
