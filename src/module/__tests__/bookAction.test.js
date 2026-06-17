@@ -47,7 +47,12 @@ describe('Book Actions', () => {
         const store = mockStore({ books: [] }); // Initial state
         await store.dispatch(getBooksAction()); // Dispatch the action
 
-        expect(store.getActions()).toEqual([]); // No actions should be dispatched on error
+        // expect(store.getActions()).toEqual([]); // No actions should be dispatched on error
+        expect(store.getActions()).toEqual([
+            { type: "BOOKLISTPENDING" },
+            { type: "BOOKLISTERROR" }
+        ]);
+
     });
 });
 

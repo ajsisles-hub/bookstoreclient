@@ -30,7 +30,7 @@ describe('Book Reducer', () => {
             promise: {
                 isPending: false,
                 isFulfilled: false,
-                isErrorOcurred: false
+                isErrorOccured: false
             }
         });
 

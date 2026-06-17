@@ -222,7 +222,10 @@ exports[`App Component  renders without crashing 1`] = `
         <div
           class="MuiBox-root css-0"
         >
-          Here is where the book list will go.
+          <span
+            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-kkcbhd-MuiSkeleton-root"
+            data-testid="book-loader"
+          />
         </div>
       </div>
     </div>
