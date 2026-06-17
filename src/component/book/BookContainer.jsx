@@ -7,8 +7,6 @@ import { StyledBookContainer } from './BookStyles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBooksAction } from '../../module/book/bookAction';
 import { getBookSelector, getBookPromiseSelector } from '../../module/book/bookSelector';
-// import BookList from './BookList';
-import BookTableItem from './BookTableItem';
 import BookListItemWithImage from './BookListItemWithImage';
 
 const BookContainer = () => {
