@@ -223,8 +223,9 @@ exports[`App Component  renders without crashing 1`] = `
           class="MuiBox-root css-0"
         >
           <span
-            class="MuiSkeleton-root MuiSkeleton-text MuiSkeleton-pulse css-kkcbhd-MuiSkeleton-root"
+            class="MuiSkeleton-root MuiSkeleton-rect MuiSkeleton-pulse css-3sr0vz-MuiSkeleton-root"
             data-testid="book-loader"
+            style="width: 80%; height: 200px;"
           />
         </div>
       </div>
