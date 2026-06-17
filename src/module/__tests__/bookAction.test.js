@@ -1,11 +1,11 @@
 import configureStore from 'redux-mock-store';
-import { thunk } from 'redux-thunk'; 
-import axios from 'axios'; 
-import { getBooksAction, getBooksByTitle } from '../book/bookAction'; 
+import { thunk } from 'redux-thunk';
+import axios from 'axios';
+import { getBooksAction, getBooksByTitle } from '../book/bookAction';
 // 1. IMPORT YOUR SERVICE DIRECTLY
-import { getBookByTitleService } from '../book/bookService'; 
+import { getBookByTitleService } from '../book/bookService';
 
-jest.mock('axios'); 
+jest.mock('axios');
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);
@@ -16,7 +16,7 @@ describe('Book Actions', () => {
         title: 'Mock Book',
         description: 'Mock description',
         releaseYear: 2020
-    }]; 
+    }];
 
     beforeEach(() => {
         // Clear mock histories between tests so they don't leak into each other
@@ -24,14 +24,14 @@ describe('Book Actions', () => {
 
         axios.get.mockImplementation(() => Promise.resolve({
             data: mockBookData
-        })); 
+        }));
     });
 
     it('dispatches BOOKLIST action with fetched books on success', async () => {
-        const store = mockStore({}); 
+        const store = mockStore({});
 
-        await store.dispatch(getBooksAction()); 
-        const actions = store.getActions(); 
+        await store.dispatch(getBooksAction());
+        const actions = store.getActions();
 
         expect(actions.length).toEqual(3);
         expect(actions[1]).toEqual({
@@ -66,7 +66,7 @@ describe('Book Actions', () => {
 
         // 3. THIS WILL NOW SUCCESSFULLY BE 3 ACTIONS!
         expect(actions.length).toEqual(3);
-        
+
         expect(actions[0].type).toEqual("BOOKLISTPENDING");
         expect(actions[1]).toEqual({
             type: 'BOOKSBYTITLE',
@@ -79,4 +79,27 @@ describe('Book Actions', () => {
         });
         expect(actions[2].type).toEqual("BOOKLISTFULFILLED");
     });
+
+
+    it('should able to dispatch error action', async () => {
+
+        const store = mockStore({});
+        axios.get.mockImplementation(() => {
+            throw new Error();
+        });
+
+
+        await store.dispatch(getBooksByTitle('the testse'));
+
+        const actions = store.getActions();
+        
+        expect(actions.length).toEqual(2);
+        expect(actions[1]).toEqual({
+            type: 'BOOKLISTERROR',
+        })
+
+
+    })
+
+
 });
