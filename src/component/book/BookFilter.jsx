@@ -78,13 +78,12 @@ const BookFilter = () => {
 
                     <Button
                         onClick={handlerReset}
+                        variant="outlined"
                         data-testid="book-reset-button"
                         id="button-search"
-                        variant="contained"
                         disableElevation
                         fullWidth
                         sx={{
-                            mt: 1.5, // Spacing between TextField and Button
                             mb: 3,   // Spacing before the divider
                             borderRadius: 2,
                             textTransform: 'none',
