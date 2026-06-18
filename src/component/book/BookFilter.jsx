@@ -5,11 +5,25 @@ import {
     Button
 } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { getBooksByTitle } from '../../module/book/bookAction';
+import { getBooksByTitle, getBooksAction } from '../../module/book/bookAction';
 
 const BookFilter = () => {
     const [title, setTitle] = useState(''); // Manage input state
     const dispatch = useDispatch();
+
+    const handleSearchChange = (event) => {
+        setTitle(event.target.value);
+    }
+
+    const handlerSearchClick = (event) => {
+        dispatch(getBooksByTitle(title));
+    }
+
+    const handlerReset = (event) => {
+        setTitle('');
+        dispatch(getBooksAction());
+
+    }
 
     return (
         // The Sidebar Container Box fixes the layout width and provides uniform alignment
@@ -34,7 +48,7 @@ const BookFilter = () => {
                         Keywords
                     </Typography>
                     <TextField
-                        onChange={event => setTitle(event.target.value)}
+                        onChange={handleSearchChange}
                         value={title}
                         data-testid="book-title-input"
                         id="input-search"
@@ -45,9 +59,7 @@ const BookFilter = () => {
                         sx={{ mb: 3 }}
                     />
                     <Button
-                        onClick={() => {
-                            dispatch(getBooksByTitle(title))
-                        }}
+                        onClick={handlerSearchClick}
                         data-testid="book-search-button"
                         id="button-search"
                         variant="contained"
@@ -62,6 +74,24 @@ const BookFilter = () => {
                             py: 0.8
                         }}
                     >Search Book
+                    </Button>
+
+                    <Button
+                        onClick={handlerReset}
+                        data-testid="book-reset-button"
+                        id="button-search"
+                        variant="contained"
+                        disableElevation
+                        fullWidth
+                        sx={{
+                            mt: 1.5, // Spacing between TextField and Button
+                            mb: 3,   // Spacing before the divider
+                            borderRadius: 2,
+                            textTransform: 'none',
+                            fontWeight: '600',
+                            py: 0.8
+                        }}
+                    >Reset
                     </Button>
 
 

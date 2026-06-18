@@ -7,6 +7,9 @@ import { screen, act, getByLabelText, getByText, fireEvent } from '@testing-libr
 import * as bookActions from '../../module/book/bookAction';
 
 
+
+jest.mock('../../module/book/bookAction');
+
 describe('BookFilter Component', () => {
 
     // Test Case 1: Testing the Simulation/State change
@@ -22,11 +25,30 @@ describe('BookFilter Component', () => {
         expect(inputElement.value).toBe('Harry Potter');
     });
 
-    // Test Case 2: Fixing your existing click event dispatch test
-    // Test Case 2: Simulating search click and handling state loops safely
-    it('should fire getBooksByTitle action on click of search button', () => {
+
+    // This implementation should not have jest.mock for this to run
+    // // Test Case 2: Fixing your existing click event dispatch test
+    // it('should fire getBooksByTitle action on click of search button', () => {
+    //     const { getByLabelText, getByText } = renderWithRedux(<BookFilter />, {});
+    //     const getBooksByTitleSpy = jest.spyOn(bookActions, 'getBooksByTitle')
+    //     const textField = getByLabelText('Search book title');
+    //     fireEvent.change(textField, { target: { value: 'The Firm' } });
+
+    //     const searchButton = getByText('Search Book');
+    //     fireEvent.click(searchButton);
+
+    //     // expect(getBooksByTitle).toHaveBeenCalledWith('The Firm');
+    //     expect(getBooksByTitleSpy).toHaveBeenCalledWith('The Firm');
+
+    //     // 5. Clean up the spy so it doesn't affect other tests
+    //     getBooksByTitleSpy.mockRestore();
+    // });
+
+
+    it('part 2: should fire getBookByTitle', () => {
         const { getByLabelText, getByText } = renderWithRedux(<BookFilter />, {});
-        const getBooksByTitleSpy = jest.spyOn(bookActions, 'getBooksByTitle')
+        getBooksByTitle.mockImplementation(() => (dispatch) => { });
+
         const textField = getByLabelText('Search book title');
         fireEvent.change(textField, { target: { value: 'The Firm' } });
 
@@ -34,9 +56,7 @@ describe('BookFilter Component', () => {
         fireEvent.click(searchButton);
 
         // expect(getBooksByTitle).toHaveBeenCalledWith('The Firm');
-        expect(getBooksByTitleSpy).toHaveBeenCalledWith('The Firm');
+        expect(getBooksByTitle).toHaveBeenCalledWith('The Firm');
 
-        // 5. Clean up the spy so it doesn't affect other tests
-        getBooksByTitleSpy.mockRestore();
-    });
+    })
 });
