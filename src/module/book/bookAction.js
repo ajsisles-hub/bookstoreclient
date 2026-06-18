@@ -13,7 +13,7 @@ export const getBooksAction = () => async (dispatch) => {
             payload: response.data // axios nests the response in a .data object
         });
         //
-        dispatch({ type: 'BOOKLISTFULLFILLED' });
+        dispatch({ type: 'BOOKLISTFULFILLED' });
     } catch (error) {
         dispatch({ type: 'BOOKLISTERROR' });
     }
@@ -21,6 +21,7 @@ export const getBooksAction = () => async (dispatch) => {
 
 export const getBooksByTitle = (title) => async (dispatch) => {
     try {
+        console.log("get")
         dispatch({ type: "BOOKLISTPENDING" });
 
         const response = await getBookByTitleService.getBooks(title);

@@ -59,34 +59,50 @@ exports[`App Component  renders without crashing 1`] = `
               </h6>
               <div
                 class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-1dw3j40-MuiFormControl-root-MuiTextField-root"
+                data-testid="book-title-input"
               >
+                <label
+                  class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-outlined MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-sizeSmall MuiInputLabel-outlined css-1kfabtt-MuiFormLabel-root-MuiInputLabel-root"
+                  data-shrink="false"
+                  for="input-search"
+                  id="input-search-label"
+                >
+                  Search book title
+                </label>
                 <div
                   class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall css-1blp12k-MuiInputBase-root-MuiOutlinedInput-root"
                 >
                   <input
                     aria-invalid="false"
                     class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"
-                    id="_r_0_"
-                    placeholder="Search title or author..."
+                    id="input-search"
+                    placeholder="Search book title"
                     type="text"
+                    value=""
                   />
                   <fieldset
                     aria-hidden="true"
                     class="MuiOutlinedInput-notchedOutline css-18p5xg2-MuiNotchedOutlined-root-MuiOutlinedInput-notchedOutline"
                   >
                     <legend
-                      class="css-1nf2c5d-MuiNotchedOutlined-root"
+                      class="css-1n64csd-MuiNotchedOutlined-root"
                     >
-                      <span
-                        aria-hidden="true"
-                        class="notranslate"
-                      >
-                        ​
+                      <span>
+                        Search book title
                       </span>
                     </legend>
                   </fieldset>
                 </div>
               </div>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-fullWidth css-178wotz-MuiButtonBase-root-MuiButton-root"
+                data-testid="book-search-button"
+                id="button-search"
+                tabindex="0"
+                type="button"
+              >
+                Search Book
+              </button>
               <hr
                 class="MuiDivider-root MuiDivider-fullWidth css-1nih0dr-MuiDivider-root"
               />

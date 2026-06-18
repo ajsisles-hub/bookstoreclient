@@ -30,7 +30,7 @@ const bookReducer = (state = INITIAL_BOOK_REDUCER_STATE, action) => {
                 ...state,
                 promise: { isPending: false, isFulfilled: false, isErrorOccured: true }
             }
-        case "BOOKLISTFULLFILLED":
+        case "BOOKLISTFULFILLED":
             return {
                 ...state,
                 promise: { isPending: false, isFulfilled: true, isErrorOccured: false }
