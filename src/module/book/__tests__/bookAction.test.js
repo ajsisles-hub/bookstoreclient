@@ -1,9 +1,9 @@
 import configureStore from 'redux-mock-store';
 import { thunk } from 'redux-thunk';
 import axios from 'axios';
-import { getBooksAction, getBooksByTitle } from '../book/bookAction';
+import { getBooksAction, getBooksByTitle } from '../../book/bookAction';
 // 1. IMPORT YOUR SERVICE DIRECTLY
-import { getBookByTitleService } from '../book/bookService';
+import { getBookByTitleService } from '../../book/bookService';
 
 jest.mock('axios');
 
