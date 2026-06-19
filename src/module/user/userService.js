@@ -1,8 +1,8 @@
 import axios from 'axios';
-import baseUrl from '../../config';
+import { baseApiUrl } from '../../config';
 
 
-export const login = (email, password) => axios.post(`${baseUrl}/api/v1/login`, {
+export const login = (email, password) => axios.post(`${baseApiUrl}/api/v1/login`, {
     email,
     password
 })
