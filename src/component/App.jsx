@@ -1,28 +1,22 @@
 import React from 'react';
-import axios from 'axios';
-import { baseApiUrl }  from '../config';
 import Layout from './layout/Layout';
 import BookContainer from './book/BookContainer';
-
-
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from '../module/user/Login';
 
 export const App = () => {
-console.log('Base API URL:', baseApiUrl);
-  axios.get(`${baseApiUrl}/api/v1/books`)
-    .then(response => {
-      console.log(response.data);
-    })
-    .catch(error => {
-      console.log('Error fetching books:', error);
-    });
-
-
-  // return <div>React App - Hello Ja9</div>;
 
   return (
-  <Layout>
-    <BookContainer />
-  </Layout>
+    <Layout>
+
+      <Router>
+        <Routes>
+          <Route path="login" element={<Login />} />
+          <Route exact path='/' element={<BookContainer />} />
+        </Routes>
+      </Router>
+
+    </Layout>
   );
 };
 

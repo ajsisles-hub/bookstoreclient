@@ -1,5 +1,3 @@
-import { INITIAL_BOOK_REDUCER_STATE } from "../book/bookReducer";
-
 export const USER_INITIAL_STATE = {
     token: '',
     promise: {
