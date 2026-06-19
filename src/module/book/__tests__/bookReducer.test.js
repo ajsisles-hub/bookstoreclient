@@ -1,6 +1,6 @@
 import { isFulfilled } from '@reduxjs/toolkit';
-import bookReducer from '../book/bookReducer';
-import { INITIAL_BOOK_REDUCER_STATE } from '../book/bookReducer';
+import bookReducer from '../bookReducer';
+import { INITIAL_BOOK_REDUCER_STATE } from '../bookReducer';
 
 describe('Book Reducer', () => {
     it('should return the initial state', () => {
