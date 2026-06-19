@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Box, Typography, Paper, TextField, Button } from '@mui/material';
 import * as yup from 'yup';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { loginAction } from '../../module/user/userAction';
+import { useSnackbar } from 'notistack'
+import { getUserPromise } from './userSelector'
+
+
+
+
 
 const validationSchema = yup.object({
     email: yup
@@ -18,6 +24,22 @@ const validationSchema = yup.object({
 
 const Login = () => {
     const dispatch = useDispatch();
+    const loginPromise = useSelector(getUserPromise);
+    const { enqueueSnackbar } = useSnackbar();
+
+    useEffect(() => {
+        if (loginPromise.isErrorOccured) {
+            enqueueSnackbar('Email and password invalid', {
+                variant: 'error'
+            })
+
+        } else if (loginPromise.isSuccess) {
+            enqueueSnackbar('Login Success', {
+                variant: 'success'
+            });
+        }
+    }, [loginPromise.isErrorOccured, loginPromise.isSuccess, enqueueSnackbar]);
+
 
     const formik = useFormik({
 
