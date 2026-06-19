@@ -103,6 +103,15 @@ exports[`App Component  renders without crashing 1`] = `
               >
                 Search Book
               </button>
+              <button
+                class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-fullWidth MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeMedium MuiButton-outlinedSizeMedium MuiButton-colorPrimary MuiButton-disableElevation MuiButton-fullWidth css-12xm440-MuiButtonBase-root-MuiButton-root"
+                data-testid="book-reset-button"
+                id="button-search"
+                tabindex="0"
+                type="button"
+              >
+                Reset
+              </button>
               <hr
                 class="MuiDivider-root MuiDivider-fullWidth css-1nih0dr-MuiDivider-root"
               />
