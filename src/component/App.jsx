@@ -5,6 +5,7 @@ import BookContainer from './book/BookContainer';
 import Login from '../module/user/Login';
 import { SnackbarProvider } from 'notistack';
 import Auth from './auth';
+import Register from '../module/user/Register';
 
 export const App = () => {
 
@@ -23,6 +24,8 @@ export const App = () => {
             {/* Anything inside here requires a token */}
             <Route path='/' element={<BookContainer />} />
             {/* You can easily add more protected pages here later, like: */}
+           <Route path='/register' element={<Register />} />
+
             {/* <Route path="/dashboard" element={<Dashboard />} /> */}
           </Routes>
         </Router>
