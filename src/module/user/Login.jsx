@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { loginAction } from '../../module/user/userAction';
 import { useSnackbar } from 'notistack'
 import { getUserPromise } from './userSelector'
-
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -26,6 +26,7 @@ const Login = () => {
     const dispatch = useDispatch();
     const loginPromise = useSelector(getUserPromise);
     const { enqueueSnackbar } = useSnackbar();
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (loginPromise.isErrorOccured) {
@@ -37,8 +38,9 @@ const Login = () => {
             enqueueSnackbar('Login Success', {
                 variant: 'success'
             });
+            navigate.push('/');
         }
-    }, [loginPromise.isErrorOccured, loginPromise.isSuccess, enqueueSnackbar]);
+    }, [loginPromise, enqueueSnackbar, navigate]);
 
 
     const formik = useFormik({

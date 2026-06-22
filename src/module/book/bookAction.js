@@ -40,3 +40,10 @@ export const getBooksByTitle = (title) => async (dispatch) => {
     }
 
 };
+
+
+export const logoutUser = () => {
+    return {
+        type: 'LOGOUT'
+    };
+};
