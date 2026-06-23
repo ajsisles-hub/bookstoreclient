@@ -38,7 +38,7 @@ const Login = () => {
             enqueueSnackbar('Login Success', {
                 variant: 'success'
             });
-            navigate.push('/');
+            navigate('/');
         }
     }, [loginPromise, enqueueSnackbar, navigate]);
 

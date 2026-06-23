@@ -1,3 +1,9 @@
+import {
+    // USER_LOGIN_PENDING, USER_LOGIN_LOGIN, USER_LOGIN_SUCESS,
+    USER_REGISTER_PENDING, USER_REGISTER,
+    USER_REGISTER_SUCCESS, USER_REGISTER_ERROR
+} from './userActionTypes';
+
 export const USER_INITIAL_STATE = {
     token: window.localStorage.getItem('bookstore-token'),
     loginPromise: {
@@ -43,29 +49,29 @@ const userReducer = (state = USER_INITIAL_STATE, action) => {
             };
 
 
-        //Register action
-        case 'USER_REGISTER':
+        //======== REGISTRATION REDUCER ======= //
+        case USER_REGISTER:
             return {
                 ...state,
                 user: action.payload
             };
 
-        case 'USER_REGISTER_SUCESS':
+        case USER_REGISTER_SUCCESS:
             return {
                 ...state,
-                loginPromise: { isPending: false, isSuccess: true, isErrorOccured: false }
+                registerPromise: { isPending: false, isSuccess: true, isErrorOccured: false }
 
             };
-        case 'USER_REGISTER_PENDING':
+        case USER_REGISTER_PENDING:
             return {
                 ...state,
-                loginPromise: { isPending: true, isSuccess: false, isErrorOccured: false }
+                registerPromise: { isPending: true, isSuccess: false, isErrorOccured: false }
 
             };
-        case 'USER_REGISTER_ERROR':
+        case USER_REGISTER_ERROR:
             return {
                 ...state,
-                loginPromise: { isPending: false, isSuccess: false, isErrorOccured: true }
+                registerPromise: { isPending: false, isSuccess: false, isErrorOccured: true }
             };
 
 
