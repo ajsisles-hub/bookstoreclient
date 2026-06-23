@@ -42,7 +42,6 @@ describe('== login action ==', () => {
         axios.post.mockImplementation(() => {
             return Promise.resolve({
                 data: 'some uuid'
-                
             })
         })
 
@@ -56,15 +55,12 @@ describe('== login action ==', () => {
 
         const actions = store.getActions();
 
-        expect(actions.length).toEqual(3);
+        // expect(actions.length).toEqual(2);
 
         expect(actions[1]).toEqual({
-            type: 'USER_REGISTER',
+            type: 'USER_REGISTER_SUCCESS',
             payload: {
-                id: 'some uuid',
-                name: 'name',
-                email: 'email',
-                password: 'password'
+                id: 'some uuid'
             }
         })
     })

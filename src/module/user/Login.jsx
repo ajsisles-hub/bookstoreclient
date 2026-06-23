@@ -38,7 +38,7 @@ const Login = () => {
             enqueueSnackbar('Login Success', {
                 variant: 'success'
             });
-            navigate('/');
+            navigate('/book-list');
         }
     }, [loginPromise, enqueueSnackbar, navigate]);
 
@@ -83,6 +83,7 @@ const Login = () => {
                         sx={{ marginTop: '1.5rem' }}
                         name='password'
                         id='password'
+                        type='password'
                         data-typeid='password-testid'
                         label='Enter password'
                         variant='outlined'

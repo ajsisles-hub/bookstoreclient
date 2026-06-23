@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from './layout/Layout';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import BookContainer from './book/BookContainer';
 import Login from '../module/user/Login';
 import { SnackbarProvider } from 'notistack';
@@ -16,17 +16,20 @@ export const App = () => {
 
         <Router>
           <Routes>
-            {/* Public Route */}
+
+            {/* 1. Automatic Redirect: When hitting '/', send them to '/login' */}
+            <Route path="/" element={<Navigate to="/login" replace />} />
+
+            {/* 2. Public Routes */}
             <Route path="login" element={<Login />} />
+            <Route path="/register" element={<Register />} /> {/* Register is usually public */}
 
-            {/* Protected Routes Wrapper */}
-            <Route element={<Auth />} />
-            {/* Anything inside here requires a token */}
-            <Route path='/' element={<BookContainer />} />
-            {/* You can easily add more protected pages here later, like: */}
-           <Route path='/register' element={<Register />} />
-
-            {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+            {/* 3. Protected Routes Wrapper */}
+            {/* Notice how the protected routes are now INSIDE the Auth Route */}
+            <Route element={<Auth />}>
+              <Route path="/book-list" element={<BookContainer />} />
+              {/* Any other protected routes go here seamlessly */}
+            </Route>
           </Routes>
         </Router>
 

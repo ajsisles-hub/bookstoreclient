@@ -71,7 +71,7 @@ const userReducer = (state = USER_INITIAL_STATE, action) => {
         case USER_REGISTER_ERROR:
             return {
                 ...state,
-                registerPromise: { isPending: false, isSuccess: false, isErrorOccured: true }
+                registerPromise: { isPending: false, isSuccess: false, isErrorOccured: true, errorMessage: action.payload }
             };
 
 

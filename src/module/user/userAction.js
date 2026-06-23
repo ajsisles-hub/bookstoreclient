@@ -1,13 +1,9 @@
 import authService from './userService';
-import {
-    USER_LOGIN_PENDING, USER_LOGIN_LOGIN, USER_LOGIN_SUCESS,
-    USER_REGISTER_PENDING, USER_REGISTER,
-    USER_REGISTER_SUCCESS, USER_REGISTER_ERROR
-} from './userActionTypes';
+import * as types from './userActionTypes';
 
 export const loginAction = (email, password) => async (dispatch) => {
     try {
-        dispatch({ type: USER_LOGIN_PENDING });
+        dispatch({ type: types.USER_LOGIN_PENDING });
 
         // issue axios request to login api
         const response = await authService.login(email, password);
@@ -17,36 +13,36 @@ export const loginAction = (email, password) => async (dispatch) => {
 
         //dispatch redux action
         dispatch({
-            type: USER_LOGIN_LOGIN,
+            type: types.USER_LOGIN,
             payload: response.data
         });
-        dispatch({ type: USER_LOGIN_SUCESS });
+
+        dispatch({ type: types.USER_LOGIN_SUCESS });
 
     } catch (error) {
-        dispatch({ type: 'USER_ERROR' });
-
-    }
+        dispatch({ type: types.USER_LOGIN_ERROR });
+   }
 
 
 };
-export const registerAction = (user) => async (dispatch) => {
+export const registerAction = (user, setErrors) => async (dispatch) => {
 
     try {
-        dispatch({ type: USER_REGISTER_PENDING });
+        dispatch({ type: types.USER_REGISTER_PENDING });
 
         const response = await authService.register(user);
 
-        dispatch({
-            type: USER_REGISTER,
-            payload: {
-                id: response.data,
-                ...user,
-            }
-
-        });
-        dispatch({ type: USER_REGISTER_SUCCESS });
+        dispatch({ type: types.USER_REGISTER_SUCCESS, payload: { id: response.data } });
     } catch (error) {
-        dispatch({ type: USER_REGISTER_ERROR });
+        if (error.response && error.response.status === 409) {
+            const serverFieldErrors = error.response.data.errors;
+            if (serverFieldErrors && setErrors) {
+                setErrors(serverFieldErrors);
+            }
+            dispatch({ type: types.USER_REGISTER_ERROR, payload: error.response.data.message });
+        } else {
+            dispatch({ type: types.USER_REGISTER_ERROR, payload: 'Something went wrong.' });
+        }
     }
 
 };

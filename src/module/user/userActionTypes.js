@@ -1,5 +1,5 @@
 export const USER_LOGIN_PENDING = 'USER_PENDING';
-export const USER_LOGIN_LOGIN = 'USER_LOGIN';
+export const USER_LOGIN = 'USER_LOGIN';
 export const USER_LOGIN_SUCESS = 'USER_SUCESS';
 export const USER_LOGIN_ERROR = 'USER_ERROR';
 
