@@ -39,6 +39,59 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
+## Start Client and Backend
+
+Follow these concise steps to run the React client and the BookStore Spring Boot backend.
+
+- **Install dependencies (client)**: run:
+
+```
+npm install
+```
+
+- **Start the React client (development)**: runs the CRA dev server with hot reload:
+
+```
+npm run dev
+```
+
+Open http://localhost:3000 in your browser.
+
+- **Run the React client as a production build locally** (creates `build/` then serves it):
+
+```
+npm run build
+npm start
+```
+
+Note: `npm start` serves the `build/` folder (uses `serve -s build`), so you must run `npm run build` first.
+
+- **Start the BookStore Spring Boot backend** (from the backend project root):
+
+Use the Maven wrapper (preferred if present):
+
+```
+./mvnw spring-boot:run
+```
+
+Or with Gradle wrapper:
+
+```
+./gradlew bootRun
+```
+
+Or with a local Maven/Gradle install:
+
+```
+mvn spring-boot:run
+```
+
+- **Order & notes**:
+	- Start the Spring Boot backend first so the client can reach the API (default backend port: `8080`).
+	- If your backend runs on a non-default port, update the client configuration or environment variables so API requests point to the correct host/port.
+	- If you deploy the client to a static host, enable an index fallback (history API fallback) on the server or use `HashRouter` in the client to avoid 404 on refresh.
+
+
 ## Learn More
 
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
